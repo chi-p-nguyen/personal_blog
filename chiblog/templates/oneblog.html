@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class = "container">
-<article class="mt-5">
+<div class = "container-fluid padding">
+<div class="row">
+  <div class="col-md-12 col-lg-8">
+  <article class="mt-5 ml-3">
     <div class="media-body">
         <h3 class="mt-0">{{ blog.title }}</h3>
         <a href="{{ url_for('blog.category_blog', category = blog.category.name) }}" class="badge badge-secondary" aria-pressed="true">{{ blog.category.name.capitalize() }}</a>
@@ -14,7 +16,9 @@
         {% endif %}
         <p class="mt-2 lead">{{ blog.content }}</p>
     </div>
-</article>
+  </article>
+</div>
+</div>
 
   <!-- Modal START-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
