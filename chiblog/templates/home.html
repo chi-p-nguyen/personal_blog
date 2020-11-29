@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <img src="{{ url_for('static', filename='images/self_potrait.jpg') }}" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="col mt-5 ml-5">
+    <h1 class="mt-5">
+        Hello! I'm Chi.
+    </h1>
+    
+    <h4 class="text-muted">
+        CS Student / Developer
+    </h4>
+  
+    
+    <div class="mt-4 w-50 p-3">
+        <ul>
+            <li><a href="{{ url_for('main.projects') }}">See my projects</a></li>
+            <li><a href="{{ url_for('blog.blogs') }}">Read my Blogs</a></li>
+            <li><a href="{{ url_for('main.about') }}">About me</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+{% endblock content %}

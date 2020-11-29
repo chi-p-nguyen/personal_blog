@@ -1,0 +1,13 @@
+body {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+a { color: #000000; } 
+
+.content-section {
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
