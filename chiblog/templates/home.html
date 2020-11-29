@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<div class="container-fluid padding">
 <div class="row">
-    <div class="col">
+    <div class="col-lg-6 d-none d-lg-block d-xl-block">
         <img src="{{ url_for('static', filename='images/self_potrait.jpg') }}" class="img-fluid" alt="Responsive image">
     </div>
-    <div class="col mt-5 ml-5">
+     
+    <div class="col-md-12 col-lg-6">
     <h1 class="mt-5">
         Hello! I'm Chi.
     </h1>
@@ -21,6 +23,7 @@
             <li><a href="{{ url_for('blog.blogs') }}">Read my Blogs</a></li>
             <li><a href="{{ url_for('main.about') }}">About me</a></li>
         </ul>
+    </div>
     </div>
 </div>
 </div>

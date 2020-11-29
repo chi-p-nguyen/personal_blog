@@ -23,12 +23,17 @@
     {% endif %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent navbar-expand-xl">
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-light bg-transparent sticky-top">
+      <div class="container-fluid">
       <a class="navbar-brand ml-4" href="{{ url_for('main.home') }}">
         <img src="{{ url_for('static', filename='images/burger2.png') }}" width="30" height="30" alt="">
+        <span style="font-size: 1.5rem; font-weight: 500;">Chi Nguyen</span>
       </a>
-      <a class="navbar-brand mr-4 " href="/"><span style="font-size: 1.5rem; font-weight: 500;">Chi Nguyen</span></a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>  
+      <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mr-auto">
               {% if current_user.is_authenticated %}
               <li class="nav-item active">
@@ -38,18 +43,17 @@
               <a class="nav-link mr-2 border border-dark" href="{{ url_for('blog.new_blog') }}">Profile</a>
             </li>
               {% endif %}
-
             </ul>
              <!-- Navbar Right Side -->
-             <div class="navbar-nav">
+             <ul class="navbar-nav ml-auto">
               {% if current_user.is_authenticated %}
-                <a class="nav-item mr-2 nav-link active border border-dark text-white bg-dark" href="{{ url_for('user.logout') }}">Logout</a>
+                <li class="nav-item active mr-2 border border-dark bg-dark"><a class="nav-link text-white" href="{{ url_for('user.logout') }}">Logout</a></li>
               {% endif %}
-              <a class="nav-link mr-2 border border-dark" href="{{ url_for('main.projects') }}"> Projects <span class="sr-only">(current)</span></a>
-              <a class="nav-link mr-2 border border-dark" href="{{ url_for('main.about') }}">About</a>
-              <a class="nav-link mr-2 border border-dark text-white bg-dark" href="{{ url_for('main.projects') }}">Contact</a>
-              </div>
-      
+              <li class="nav-item mr-2 border border-dark bg-dark"><a class="nav-link text-white" href="{{ url_for('main.projects') }}"> Projects <span class="sr-only">(current)</span></a></li>
+              <li class="nav-item mr-2 border border-dark"><a class="nav-link" href="{{ url_for('main.about') }}">About</a></li>
+              <li class="nav-item mr-2 border border-dark"><a class="nav-link" href="{{ url_for('main.projects') }}">Contact</a></li>
+             </ul>
+            </div>
     </nav>
     <main role="main" class="container-sm mt-2">
       {% with messages = get_flashed_messages(with_categories=true) %}
