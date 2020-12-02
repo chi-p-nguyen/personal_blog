@@ -30,7 +30,7 @@ def update_project(project_id):
         project.description = request.form["description"]
         project.link = request.form["link"]
         db.session.commit()
-        flash('Your post has been updated!', 'success')
+        flash('Your project has been updated!', 'success')
         return redirect(url_for('project.projects', project_id=project.id))
     return render_template('add_project.html', title="Update Project", legend='Update Project', project=project)
 

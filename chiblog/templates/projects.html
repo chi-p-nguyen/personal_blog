@@ -20,7 +20,6 @@
         {% if current_user.is_authenticated %}
             <div>
               <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('project.update_project', project_id=project.id) }}">Update</a>
-              <button type="button" class="btn btn-light btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Delete</button>
             </div>
         {% endif %}
         </article>
@@ -29,29 +28,5 @@
         </div>
 </div>
 
-{% for project in projects %}
-{% if current_user.is_authenticated %}
-<!-- Modal START-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Delete this project?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-          <form action="{{ url_for('project.delete_project', project_id=project.id) }}" method="POST">
-            <input class="btn btn-dark" type="submit" value="Delete">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- Modal END-->
-{% endif %}
-{% endfor %}
 </div>
 {% endblock content %}

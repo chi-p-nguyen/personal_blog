@@ -11,12 +11,10 @@ def login():
         return redirect(url_for('main.home'))
     if request.method=='POST':
         email = request.form['email']
-        print(email)
         password = request.form['password']
         user = User.query.filter_by(email = email).first()
-        print(user.password)
-        #if user and check_password_hash(user.password, password):
-        if user and user.password == password:
+        if user and check_password_hash(user.password, password):
+        #if user and user.password == password:
             login_user(user)
             print('Logged in')
             next_page = request.args.get('next')
