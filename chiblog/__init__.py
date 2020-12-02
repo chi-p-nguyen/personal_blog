@@ -2,6 +2,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from chiblog.config import Config
+import click
+from flask.cli import with_appcontext
+from werkzeug.security import generate_password_hash
 
 db = SQLAlchemy()
 login_manager = LoginManager()
@@ -24,4 +27,32 @@ def create_app(config_class=Config):
     app.register_blueprint(main)
     app.register_blueprint(project)
 
+    from chiblog.User.user_model import User
+
+    @click.command(name='create_admin')   
+    @with_appcontext
+    def create_admin():
+        admin=User(email="test@test.com",password="password")
+        admin.password = generate_password_hash(admin.password,'sha256',salt_length=12)
+        db.session.add(admin)
+        db.session.commit()
+
+    app.cli.add_command(create_admin)
+
     return app
+
+'''
+from chiblog.Project.project_model import Project
+    from chiblog.User.user_model import User
+    from chiblog.Blog.blog_model import Blog, Category
+
+    blog = Blog(title='test title', content='test content')
+    cat = Category(name='story')
+    blog.category = cat
+    project = Project(name = 'test project', description='dessss', link='some link')
+    admin=User(email="test@test.com",password="password")
+    db.session.add(admin)
+    db.session.add(blog)
+    db.session.add(project)
+    db.session.commit()
+'''

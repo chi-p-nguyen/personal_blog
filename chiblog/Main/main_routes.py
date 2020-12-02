@@ -14,7 +14,3 @@ def about():
 @main.route('/contact')
 def contact():
     return render_template('contact.html', title='Contact')
-
-@main.route('/projects', methods=['GET'])
-def projects():
-    return render_template('projects.html')

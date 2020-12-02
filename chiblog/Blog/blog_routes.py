@@ -1,6 +1,6 @@
 from flask import render_template, url_for, request, flash, Blueprint, redirect
 from chiblog import db
-from chiblog.Blog.blog_model import Blog, Category, Project
+from chiblog.Blog.blog_model import Blog, Category
 from flask_login import login_required
 
 blog = Blueprint('blog', __name__)
