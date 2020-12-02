@@ -17,9 +17,11 @@ def create_app(config_class=Config):
     from chiblog.Blog.blog_routes import blog
     from chiblog.User.user_routes import user
     from chiblog.Main.main_routes import main
+    from chiblog.Project.project_routes import project
 
     app.register_blueprint(blog)
     app.register_blueprint(user)
     app.register_blueprint(main)
+    app.register_blueprint(project)
 
     return app

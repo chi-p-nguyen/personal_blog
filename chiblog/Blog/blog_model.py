@@ -5,7 +5,7 @@ class Blog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
-    image = db.Column(db.String, nullable=True, default = 'default.jpg')
+    image = db.Column(db.String(20), nullable=True, default = 'default.jpg')
     created_at = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'), nullable=False)
