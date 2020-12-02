@@ -26,5 +26,23 @@
     </div>
     </div>
 </div>
+
+{% if current_user.is_authenticated %}
+<div class="row">
+    <div class="col-md-12 col-lg-7">
+        <h1 class="mt-5">
+            Admin actions
+        </h1>
+        
+        <div class="mt-2 mb-4 p-3 transition-swipe">
+            <ul>
+                <li><a href="{{ url_for('project.new_project') }}">Add project</a></li>
+                <li><a href="{{ url_for('blog.new_blog') }}">Create blog</a></li>
+                <li><a href="{{ url_for('main.about') }}">Edit About me</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
 </div>
 {% endblock content %}

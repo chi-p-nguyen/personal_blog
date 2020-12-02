@@ -15,7 +15,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <!-- Swup -->  
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>  
 
@@ -39,19 +40,11 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mr-auto">
               {% if current_user.is_authenticated %}
-              <li class="nav-item active">
-              <a class="nav-link mr-2 border border-dark" href="{{ url_for('blog.new_blog') }}">New Blog</a>
-            </li>
-              <li class="nav-item active">
-              <a class="nav-link mr-2 border border-dark" href="{{ url_for('blog.new_blog') }}">Profile</a>
-            </li>
+                <li class="nav-item active mr-2 border border-dark"><a class="nav-link" href="{{ url_for('user.logout') }}">Logout</a></li>
               {% endif %}
             </ul>
              <!-- Navbar Right Side -->
              <ul class="navbar-nav ml-auto">
-              {% if current_user.is_authenticated %}
-                <li class="nav-item active mr-2 border border-dark bg-dark"><a class="nav-link text-white" href="{{ url_for('user.logout') }}">Logout</a></li>
-              {% endif %}
               <li class="nav-item mr-2 border border-dark bg-dark"><a class="nav-link text-white" href="{{ url_for('project.projects') }}"> Projects <span class="sr-only">(current)</span></a></li>
               <li class="nav-item mr-2 border border-dark"><a class="nav-link" href="{{ url_for('main.about') }}">About</a></li>
               <li class="nav-item mr-2 border border-dark"><a class="nav-link" href="{{ url_for('main.contact') }}">Contact</a></li>

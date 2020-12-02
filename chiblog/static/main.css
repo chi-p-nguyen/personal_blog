@@ -4,6 +4,15 @@ body {
 
 a { color: #000000; } 
 
+.flex-fixed-width-item {
+  flex: 0 0 100px;
+}
+
+/* Give white spaces for paragraph */
+.article-content {
+  white-space: pre-line;
+}
+
 .content-section {
     background: #ffffff;
     padding: 10px 20px;
