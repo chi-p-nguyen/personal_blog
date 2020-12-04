@@ -8,21 +8,21 @@
     </h1>
     </div>
     {% for project in projects %}
-    <div class="col-lg-6 col-md-12">
-    <article class="mt-3 media content-section">
-    <div class="media-body">
-    <div class="d-flex">
-        <h5 class="mt-0 mr-2">{{ project.name }}</h5>
-        <small class="text-muted"><a href="{{ project.link }}"><i class="fa fa-github" style="font-size:24px"></i></a></small>
-    </div>
-        <p>{{ project.description }}</p>
+    <div class="mt-2 mx-auto d-lg-flex d-md-flex align-items-stretch">
+        	<div class="card mb-3 mr-3 border-dark" style="width:32rem;">
+            <div class="card-body">
+            <div class="d-flex">
+              <h5 class="card-title mr-2"><b>{{ project.name }}</b></h5>
+              <small class="text-muted"><a href="{{ project.link }}"><i class="fa fa-github" style="font-size:24px"></i></a></small>
+            </div>
+              <p class="card-text">{{ project.description }}</p>
+            {% if current_user.is_authenticated %}
+                <div>
+                <a class="btn btn-dark btn-sm mt-1 mb-1 card-link" href="{{ url_for('project.update_project', project_id=project.id) }}">Update</a>
+                </div>
+            {% endif %}
+            </div>
         </div>
-    {% if current_user.is_authenticated %}
-        <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('project.update_project', project_id=project.id) }}">Update</a>
-        </div>
-    {% endif %}
-    </article>
     </div>
     {% endfor %}
 </div>

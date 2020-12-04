@@ -1,9 +1,17 @@
+import os
 from flask import render_template, url_for, request, flash, Blueprint, redirect
 from chiblog import db
 from chiblog.Project.project_model import Project
 from flask_login import login_required
+import urllib.request
+from werkzeug.utils import secure_filename
 
 project = Blueprint("project", __name__)
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @project.route('/projects', methods=['GET'])
 def projects():
