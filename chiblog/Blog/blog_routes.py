@@ -22,9 +22,11 @@ def new_blog():
         return redirect(url_for('blog.blogs'))
     return render_template('create_post.html', title='New Blog', legend="Create a Post")
 
-@blog.route('/blogs', methods=['GET'])
+@blog.route('/blogs')
+@blog.route('/blogs/')
 def blogs():
-    blogs = Blog.query.all()
+    page = request.args.get('page', 1, type=int)
+    blogs = Blog.query.order_by(Blog.created_at.desc()).paginate(page=page, per_page=5)
     return render_template('blogs.html', posts=blogs)
 
 @blog.route("/blogs/<int:blog_id>")
@@ -60,7 +62,9 @@ def delete_blog(blog_id):
     return redirect(url_for('blog.blogs'))
 
 @blog.route("/category/<string:category>", methods=['GET'])
+@blog.route("/category/<string:category>/", methods=['GET'])
 def category_blog(category):
     cat = Category.query.filter_by(name= category).first()
-    blogs = Blog.query.filter_by(category = cat)
+    page = request.args.get('page', 1, type=int)
+    blogs = Blog.query.filter_by(category = cat).order_by(Blog.created_at.desc()).paginate(page=page, per_page=5)
     return render_template('category.html', blogs = blogs, legend = category)

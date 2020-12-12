@@ -2,11 +2,18 @@ body {
   font-family: 'Ubuntu Mono', monospace;
 }
 
+  /* background-color: #ffffff;
+  opacity: 0.4;
+  background-image:  radial-gradient(#262e8f 1px, transparent 1px), radial-gradient(#262e8f 1px, #f1f1fa 1px);
+  background-size: 40px 40px;
+  background-position: 0 0,20px 20px; */
+
 a { color: #000000; } 
 
 .flex-fixed-width-item {
   flex: 0 0 100px;
 }
+
 
 /* Give white spaces for paragraph */
 .article-content {
