@@ -32,7 +32,7 @@ def create_app(config_class=Config):
     @click.command(name='create_admin')   
     @with_appcontext
     def create_admin():
-        admin=User(email="test@gmail.com",password="password")
+        admin=User(email='',password='')
         admin.password = generate_password_hash(admin.password,'sha256',salt_length=12)
         db.session.add(admin)
         db.session.commit()

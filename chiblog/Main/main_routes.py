@@ -13,6 +13,10 @@ def home():
 @main.route('/about')
 def about():
     about = Project.query.filter_by(name="About").first()
+    if not about:
+        about = Project(name="About", description='Hello world', link='my resume')
+        db.session.add(about)
+        db.session.commit()
     return render_template('about.html', title='About', about=about)
 
 @main.route('/contact')
