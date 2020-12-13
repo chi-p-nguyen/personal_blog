@@ -17,7 +17,7 @@
           <a href="{{ url_for('blog.category_blog', category = post.category.name) }}" class="badge badge-secondary" aria-pressed="true">{{ post.category.name.capitalize() }}</a>
           <small class="card-subtitle mt-0">{{ post.created_at.strftime('%m-%d-%Y') }}</small>
           {% if post.content|length >= 200 %}
-          <p class="card-text mt-3"> {{ post.content[:200] }} ...<a href="{{ url_for('blog.one_blog', blog_id = post.id) }}"><b>See more</b></a></p>
+          <p class="card-text mt-3"> {{ post.content[:200] }}<a href="{{ url_for('blog.one_blog', blog_id = post.id) }}"><b>...See more</b></a></p>
           {% else %}
           <p class="card-text mt-3"> {{ post.content }}</p>
           {% endif %}
