@@ -16,6 +16,10 @@ a:hover {
   text-decoration: none;
 }
 
+.nohover:hover {
+  background-color: transparent;
+}
+
 p {
   white-space: pre-line;
 }
