@@ -1,14 +1,55 @@
 body {
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "Ubuntu Mono", monospace;
 }
 
-  /* background-color: #ffffff;
+/* background-color: #ffffff;
   opacity: 0.4;
   background-image:  radial-gradient(#262e8f 1px, transparent 1px), radial-gradient(#262e8f 1px, #f1f1fa 1px);
   background-size: 40px 40px;
   background-position: 0 0,20px 20px; */
 
-a { color: #000000; } 
+.projects-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: auto;
+  margin-bottom: 3em;
+  /* width: 95%; */
+}
+
+.project-card {
+  width: 48%;
+  margin-top: 1rem;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.project-title-area {
+  display: flex;
+  flex: row;
+}
+
+.project-title {
+  margin: 0.5em 1em;
+}
+
+.project-link {
+  margin: 0.5em 0;
+}
+
+.project-text {
+  margin: 0.5em 1em;
+  font-size: 16px;
+}
+
+.update-button {
+  margin: 0.5em 1em;
+}
+
+a {
+  color: #000000;
+}
 
 a:hover {
   background-color: #a0b4f0;
@@ -23,14 +64,17 @@ a:hover {
 p {
   white-space: pre-line;
 }
-/* make card responsive */
+/* make card responsive 960*/
 @media only screen and (max-width: 768px) {
-  .card-body {
-    width: 75%;
-    padding: 0.5em 1.2em;
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3em;
   }
-  .card-body .card-text {
-    margin: 0;
+
+  .project-card {
+    width: 100%;
   }
 }
 
@@ -38,28 +82,27 @@ p {
   flex: 0 0 100px;
 }
 
-
 /* Give white spaces for paragraph */
 .article-content {
   white-space: pre-line;
 }
 
 .content-section {
-    background: #ffffff;
-    padding: 10px 20px;
-    border: 1px solid #dddddd;
-    border-radius: 3px;
-    margin-bottom: 20px;
-  }
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
 
 .modal-backdrop {
-    display: none;
-    z-index: 1040 !important;
+  display: none;
+  z-index: 1040 !important;
 }
 
 .modal-content {
-    margin: 2px auto;
-    z-index: 1100 !important;
+  margin: 2px auto;
+  z-index: 1100 !important;
 }
 
 .transition-fade {
@@ -77,7 +120,6 @@ html.is-animating .transition-fade {
 html.is-leaving .transition-fade {
   opacity: 0;
 }
-
 
 .transition-swipe {
   transition: 700ms;
