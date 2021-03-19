@@ -8,6 +8,83 @@ body {
   background-size: 40px 40px;
   background-position: 0 0,20px 20px; */
 
+/* Formatting Navbar */
+/* .navbar {
+  background: #dddddd;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  max-width: 1500px;
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 60vw;
+  justify-content: end;
+  margin-right: 2rem;
+}
+
+.nav--item {
+  height: 50px;
+}
+
+.nav--link {
+  color: #000;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .nav--link {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    left: -100%;
+  }
+
+  .nav-menu.active {
+    background: #242222;
+  }
+}
+ */
+/* Formatting project cards */
 .projects-container {
   display: flex;
   flex-direction: row;
@@ -15,7 +92,6 @@ body {
   justify-content: space-between;
   margin: auto;
   margin-bottom: 3em;
-  /* width: 95%; */
 }
 
 .project-card {
@@ -78,10 +154,6 @@ p {
   }
 }
 
-.flex-fixed-width-item {
-  flex: 0 0 100px;
-}
-
 /* Give white spaces for paragraph */
 .article-content {
   white-space: pre-line;
@@ -95,6 +167,8 @@ p {
   margin-bottom: 20px;
 }
 
+/* Formatting modal */
+
 .modal-backdrop {
   display: none;
   z-index: 1040 !important;
@@ -104,6 +178,8 @@ p {
   margin: 2px auto;
   z-index: 1100 !important;
 }
+
+/* Swup transition */
 
 .transition-fade {
   opacity: 1;
