@@ -2,6 +2,7 @@ from flask import render_template, url_for, request, flash, Blueprint, redirect
 from chiblog import db
 from chiblog.Blog.blog_model import Blog, Category
 from flask_login import login_required
+from datetime import datetime
 
 blog = Blueprint('blog', __name__)
 
@@ -41,6 +42,7 @@ def update_blog(blog_id):
     if request.method == "POST":
         blog.title = request.form["title"]
         blog.content = request.form["content"]
+        blog.created_at = datetime.utcnow()
         category = Category.query.filter_by(name= request.form["category"]).first()
         if category:
             blog.category = category
