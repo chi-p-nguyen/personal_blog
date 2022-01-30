@@ -1,47 +1,44 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "layout.html" %} {% block content %}
 <div class="container-fluid padding">
-<div class="row">
-    <div class="col-12">
-    <h1 class="mt-3">
-        {{ legend }}
-    </h1>
-    </div>
-    <div class="mt-3 ml-3 col-lg-8 col-md-12">
-    <p>
-        <form method="POST"> 
-            <div class="form-group">
-                <label for="blog_title">Title</label>
-                {% if blog %}
-                    <input type="title" class="form-control" id="blog_title" name="title" value="{{ blog.title }}">
-                {% else %}
-                    <input type="title" class="form-control" id="blog_title" name="title">
-                {% endif %}
-            </div>
-            <div class="form-group">
-              <label for="blog_content">Content</label>
-              <textarea class="form-control" id="blog_content" rows="10" name="content">{% if blog %}{{ blog.content }}{% endif %}
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mt-3">
+                {{ legend }}
+            </h1>
+        </div>
+        <div class="mt-3 ml-3 col-lg-8 col-md-12">
+            <p>
+                <form method="POST">
+                    <div class="form-group">
+                        <label for="blog_title">Title</label> {% if blog %}
+                        <input type="title" class="form-control" id="blog_title" name="title" value="{{ blog.title }}"> {% else %}
+                        <input type="title" class="form-control" id="blog_title" name="title"> {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="blog_content">Content</label>
+                        <textarea class="form-control" id="blog_content" rows="10" name="content">{% if blog %}{{ blog.content }}{% endif %}
               </textarea>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Images</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-              </div>
-            <div class="form-group">
-                <label for="blog_category">Category</label>
-                <select class="custom-select mr-sm-2" id="blog_category" name="category">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Images</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="form-group">
+                        <label for="blog_category">Category</label>
+                        <select class="custom-select mr-sm-2" id="blog_category" name="category">
                     <option selected>Choose...</option>
+                    <option value="learn">Learn</option>
                     <option value="opinion">Opinion</option>
                     <option value="random">Random</option>
                     <option value="rant">Rant</option>
                     <option value="story">Story</option>
                     <option value="draft">Draft</option>
                 </select>
-            </div>
-            <button type="submit" class="btn btn-dark">Submit</button>
-          </form>
-    </p>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </form>
+            </p>
+        </div>
     </div>
-</div>
 </div>
 {% endblock content %}
